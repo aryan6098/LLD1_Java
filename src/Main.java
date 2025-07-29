@@ -9,9 +9,11 @@ public class Main {
     public static void main(String[] args) {
         ExecutorService executorService = Executors.newFixedThreadPool(10);
         for(int i = 0; i <= 100; i++) {
+            System.out.println("DEBUG");
             NumberPrint task = new NumberPrint(i);
             executorService.execute(task);
         }
         executorService.shutdown();
     }
 }
+
