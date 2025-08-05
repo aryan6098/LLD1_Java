@@ -1,6 +1,5 @@
 package Semaphores.ProducersConsumers;
 
-import java.util.Objects;
 import java.util.Queue;
 
 public class Producers implements  Runnable{
