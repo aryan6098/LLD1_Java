@@ -7,13 +7,38 @@ import java.util.concurrent.Executors;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
-        for(int i = 0; i <= 100; i++) {
-            System.out.println("DEBUG");
-            NumberPrint task = new NumberPrint(i);
-            executorService.execute(task);
+
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(5000);
+                    System.out.println("Task completed.");
+                } catch (InterruptedException e) {
+                    System.out.println("Thread interrupted while sleeping.");
+                }
+            }
+        });
+
+
+        thread.start();
+
+
+        try {
+            Thread.sleep(2000);
+            thread.interrupt();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+
         }
-        executorService.shutdown();
+
+//        ExecutorService executorService = Executors.newFixedThreadPool(10);
+//        for(int i = 0; i <= 100; i++) {
+//            System.out.println("DEBUG");
+//            NumberPrint task = new NumberPrint(i);
+//            executorService.execute(task);
+//        }
+//        executorService.shutdown();
     }
 }
 
