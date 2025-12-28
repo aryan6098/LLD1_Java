@@ -2,10 +2,22 @@ package LibraryManagementSystem;
 
 public class Main {
     public static void main(String[] args) {
+        LibraryManageMentSystem libraryManageMentSystem = new LibraryManageMentSystem();
+        User user1 = new Librarian("Alok", "8195911239", "123");
+        User user2 = new Member("Ravi", "9876543210", 2);
+        libraryManageMentSystem.registerUser(user1);
+        libraryManageMentSystem.registerUser(user2);
+        libraryManageMentSystem.printUserDetails();
+        System.out.println();
 
-        User user = new User();
-        User user2 = new User();
-        System.out.println(user.getUserID());
-        System.out.println(user2.getUserID());
+        Book book1 = new TextBook("978-3-16-148410-0", "Effective Java", "Joshua Bloch", "Programming", 3);
+        Book book2 = new NovelBook("978-0-13-468609-7", "The Catcher in the Rye", "J.D. Salinger", "Fiction");
+        Book book3 = new TextBook("978-0-13-468609-9", "Clean Code", "Robert C. Martin", "Programming", 5);
+        Book book4 = new NovelBook("978-0-13-468609-9", "Novel Book", "Joshua Bloch", "Drama");
+        libraryManageMentSystem.addBook(book1);
+        libraryManageMentSystem.addBook(book2);
+        libraryManageMentSystem.addBook(book3);
+        libraryManageMentSystem.addBook(book4);
+        libraryManageMentSystem.printBookDetails();
     }
 }

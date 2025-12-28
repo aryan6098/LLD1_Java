@@ -1,10 +1,14 @@
 package LibraryManagementSystem;
 
-public class User {
+public abstract class User {
     static int counter = 0;
     private String userID;
     private String name;
     private String contactInfo;
+
+    public abstract void displayDashboard();
+
+    public abstract boolean canBorrowBooks();
 
     public User() {
         this.userID = generateUniquesId();
@@ -46,6 +50,7 @@ public class User {
     public void setContactInfo(String contactInfo) {
         this.contactInfo = contactInfo;
     }
+
 
 
 
